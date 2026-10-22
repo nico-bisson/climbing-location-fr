@@ -23,5 +23,18 @@ def cleaner_data(data: pd.DataFrame) -> pd.DataFrame :
         data[col] = (
             data[col].str.replace({"[": "", "]": "", "'": ""}).str.split(", ")
         )
-
+    # add a group type for visu 
+    mapping_nature = {
+    "Site naturel aménagé": "Naturel aménagé",
+    "Site naturel": "Naturel",
+    "Intérieur": "Intérieur",
+    "Découvert": "Extérieur",
+    "Extérieur": "Extérieur",
+    "Extérieur couvert": "Extérieur couvert",
+    "Site artificiel": "Artificiel",
+    "Découvrable": "Extérieur",
+    }
+    data["equip_nature_grouped"] = (
+        data["equip_nature"]
+    .replace(mapping_nature))
     return data
