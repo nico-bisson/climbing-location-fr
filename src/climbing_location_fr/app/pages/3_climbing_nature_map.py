@@ -42,7 +42,7 @@ data_to_plot = data_natural[[
      'inst_nom', 'equip_type_name', 'equip_x', 'equip_y', 
      'inst_adresse', 'inst_cp','new_name',
      'equip_acc_libre', 'equip_saison', 'equip_utilisateur_filter']] \
-.dropna(subset=["equip_x", "equip_y", "equip_type_name"]).iloc[0:100,:]
+.dropna(subset=["equip_x", "equip_y", "equip_type_name"])
 
 
 map = folium.Map(location = [47, 1],
