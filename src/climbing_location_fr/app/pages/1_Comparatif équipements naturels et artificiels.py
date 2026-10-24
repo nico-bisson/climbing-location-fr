@@ -28,7 +28,7 @@ st.divider()
 left, right = st.columns([1, 1], gap='large')
 
 with left:
-    st.subheader(f'Escalade naturelle : {len(data_natural)} installations')
+    st.subheader(f'Escalade naturelle : {len(data_natural)} équipements')
     fig1 = px.pie(data_natural, names="equip_type_name", hole=0.33,
                   title="Type de l'équipement", 
                   color="equip_type_name", color_discrete_map=mapper_color_type)
@@ -68,7 +68,7 @@ with left:
 
 
 with right:
-    st.subheader(f'Escalade naturelle : {len(data_artificial)} installations')
+    st.subheader(f'Escalade naturelle : {len(data_artificial)} équipements')
     fig1 = px.pie(data_artificial, names="equip_type_name", hole=0.33,
                   title="Type de l'équipement", 
                   color="equip_type_name", color_discrete_map=mapper_color_type)
