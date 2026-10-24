@@ -1,3 +1,5 @@
+import plotly.express as px
+
 natural = ["Site d'escalade en falaise", "Site de blocs d'escalade",
             "Cascade de glace", "Via ferrata / Via corda"]
 
@@ -38,3 +40,11 @@ mapper_color_saison = {
 
 order_date = ['Avant 1945', '1945-1964', '1965-1974', '1975-1984', '1985-1994',
                '1995-2004', 'A partir de 2005']
+
+def create_color_mapper(data, column, palette=px.colors.qualitative.Safe):
+    categories = sorted(data[column].dropna().unique(), key=str)
+
+    return {
+        category: palette[i % len(palette)]
+        for i, category in enumerate(categories)
+    }

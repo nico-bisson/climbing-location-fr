@@ -1,7 +1,7 @@
 import streamlit as st
 import plotly.express as px
 from climbing_location_fr.app.ui import mapper_color_type, mapper_color_nature, \
-order_date, mapper_color_is_artificial, mapper_color_libre, mapper_color_saison 
+order_date, mapper_color_is_artificial, mapper_color_libre, mapper_color_saison, create_color_mapper
 from climbing_location_fr.app.cache_data import load_data
 
 st.set_page_config(
@@ -10,6 +10,16 @@ st.set_page_config(
 )
 
 data, data_natural, data_artificial = load_data()
+
+mapper_color_prop_type = create_color_mapper(
+    data, "equip_prop_type"
+)
+mapper_color_gest_type = create_color_mapper(
+    data, "equip_gest_type"
+)
+mapper_color_equip_nature_grouped = create_color_mapper(
+    data, "equip_nature_grouped"
+)
 
 st.title('Comparatif escalade naturelle et escalade artificielle')
 st.divider()
@@ -39,20 +49,20 @@ with left:
 
    
     fig4 = px.pie(data_natural, names="equip_nature_grouped", hole=0.33,
-                      title="Nature de l'équipement")
-                      #color="equip_nature_grouped", color_discrete_map=mapper_color_nature)
+                      title="Nature de l'équipement",
+                      color="equip_nature_grouped", color_discrete_map=mapper_color_nature)
     fig4.update_traces(hoverinfo="label+percent", textinfo="value+percent")
     st.plotly_chart(fig4, config = {'scrollZoom': False})
 
     fig5 = px.pie(data_natural, names="equip_prop_type", hole=0.33,
                           title="Propriétaire de l'équipement",
-                          color="equip_prop_type", color_discrete_map=mapper_color_nature)
+                          color="equip_prop_type", color_discrete_map=mapper_color_prop_type)
     fig5.update_traces(hoverinfo="label+percent", textinfo="value+percent")
     st.plotly_chart(fig5, config = {'scrollZoom': False})
 
     fig6 = px.pie(data_natural, names="equip_gest_type", hole=0.33,
                               title="Gestionnaire de l'équipement",
-                              color="equip_gest_type", color_discrete_map=mapper_color_nature)
+                              color="equip_gest_type", color_discrete_map=mapper_color_gest_type)
     fig6.update_traces(hoverinfo="label+percent", textinfo="value+percent")
     st.plotly_chart(fig6, config = {'scrollZoom': False})
 
@@ -79,20 +89,20 @@ with right:
 
    
     fig4 = px.pie(data_artificial, names="equip_nature_grouped", hole=0.33,
-                      title="Nature de l'équipement",
-                      color="equip_nature_grouped", color_discrete_map=mapper_color_nature)
+                        title="Nature de l'équipement",
+                        color="equip_nature_grouped", color_discrete_map=mapper_color_nature)
     fig4.update_traces(hoverinfo="label+percent", textinfo="value+percent")
     st.plotly_chart(fig4, config = {'scrollZoom': False})
 
     fig5 = px.pie(data_artificial, names="equip_prop_type", hole=0.33,
-                          title="Propriétaire de l'équipement",
-                          color="equip_prop_type", color_discrete_map=mapper_color_nature)
+                            title="Propriétaire de l'équipement",
+                            color="equip_prop_type", color_discrete_map=mapper_color_prop_type)
     fig5.update_traces(hoverinfo="label+percent", textinfo="value+percent")
     st.plotly_chart(fig5, config = {'scrollZoom': False})
 
     fig6 = px.pie(data_artificial, names="equip_gest_type", hole=0.33,
-                              title="Gestionnaire des l'équipement",
-                              color="equip_gest_type", color_discrete_map=mapper_color_nature)
+                                title="Gestionnaire de l'équipement",
+                                color="equip_gest_type", color_discrete_map=mapper_color_gest_type)
     fig6.update_traces(hoverinfo="label+percent", textinfo="value+percent")
     st.plotly_chart(fig6, config = {'scrollZoom': False})
 
