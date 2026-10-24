@@ -78,8 +78,8 @@ acc_libre, saison, public in data_to_plot.itertuples(index=False, name=None):
         <b>Année/période :</b> {parsed_date}<br>
         <b>Adresse :</b> {narrow_adress}, {cp}, {city}<br>
         <b>Accès au public :</b>
-        {bool_matcher[acc_libre]['liberté']},
-        {bool_matcher[saison]['saison']}<br>
+        {acc_libre},
+        {saison}<br>
         <b>Public :</b> {public}
     </div>
     """

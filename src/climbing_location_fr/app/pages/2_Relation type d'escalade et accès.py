@@ -17,24 +17,9 @@ Sunburst intéractif : Cliquez sur les cercles intérieurs pour sélectionner un
 
 data, _, _ = load_data()
 
-
-bool_matcher = {
-    True: {"equip_acc_libre": "libre", "equip_saison": "saisonnier"},
-    False: {"equip_acc_libre": "non libre", "equip_saison": "non saisonnier"},
-}
-
-
-data["liberte_label"] = data["equip_acc_libre"].map(
-    lambda value: bool_matcher[value]["equip_acc_libre"] # pyright: ignore[reportArgumentType]
-)
-
-data["saison_label"] = data["equip_saison"].map(
-    lambda value: bool_matcher[value]["equip_saison"] # pyright: ignore[reportArgumentType]
-)
-
 data = (
     data.groupby(
-        ["equip_type_name", "saison_label", "liberte_label"]
+        ["equip_type_name", "equip_saison", "equip_acc_libre"]
     )
     .size()
     .reset_index(name="count")
@@ -42,7 +27,7 @@ data = (
 
 fig = px.sunburst(
     data,
-    path=["liberte_label", "saison_label", "equip_type_name"],
+    path=["equip_acc_libre", "equip_saison", "equip_type_name"],
     values="count",
     color="equip_type_name",
     color_discrete_map=mapper_color_type,
