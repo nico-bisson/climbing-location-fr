@@ -11,12 +11,12 @@ uv run scripts/fetcher_data_gouv_sport.py
 uv run scripts/fetcher_data_gouv_sport.py --activity aviron
 ```
 
-La visualisation des données est disponible via [Streamlit Community Cloud](https://climbing-location-fr-j2mpwechowfztrmsp6xs5t.streamlit.app/).   
+La visualisation des données est disponible via [Streamlit Community Cloud](https://climbing-location-fr-nico-bis.streamlit.app//).   
 
 Elle propose un comparatif des équipements d’escalade en milieu naturel et artificiel, ainsi qu’une carte interactive des sites d’escalade en milieu naturel en France.
 
 Possibilité de run en local avec:
 ```python
-streamlit  run src/climbing_location_fr/app/home.py
+streamlit  run src/climbing_location_fr/app/app.py
 ```
 
