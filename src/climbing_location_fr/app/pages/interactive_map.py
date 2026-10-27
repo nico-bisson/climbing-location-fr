@@ -6,14 +6,8 @@ import streamlit as st
 from streamlit_folium import st_folium
 from climbing_location_fr.app.cache_data import load_data
 
-st.set_page_config(layout="wide")
-st.set_page_config(
-    page_title="Carte interactive de l'escalade naturelle",
-    layout='wide'   
-)
-
-st.title("Carte interactive de l'escalade naturelle")
-
+st.set_page_config(layout='wide')
+st.title("🗺️🌿Carte interactive de l'escalade naturelle")
 
 def parse_date(date, period):
         try:

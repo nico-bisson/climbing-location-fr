@@ -3,12 +3,8 @@ import plotly.express as px
 from climbing_location_fr.app.ui import mapper_color_type, mapper_color_libre, mapper_color_saison 
 from climbing_location_fr.app.cache_data import load_data
 
-st.set_page_config(
-    page_title='Sunburst',
-    layout='wide'   
-)
-
-st.title("Sunburst des installations d'escalade")
+st.set_page_config(layout='wide')
+st.title("🔗 Relation type d'installation et accès")
 
 st.markdown("""
 De l'intérieur à l'extérieur : accès libre, accès saisonnier et type d'installation.  

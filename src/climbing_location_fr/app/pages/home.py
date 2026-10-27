@@ -1,12 +1,7 @@
 import streamlit as st
 
-st.set_page_config(
-    page_title="À la découverte de l'escalade en France",
-    page_icon="🧗",
-    layout="wide",
-)
-
-st.title("🧗 À la découverte des sites d’escalade en France")
+st.set_page_config(layout="wide")
+st.title("🧗 À la découverte des équipements d’escalade en France")
 
 st.markdown("""
 Cette application explore les équipements d’escalade recensés dans la

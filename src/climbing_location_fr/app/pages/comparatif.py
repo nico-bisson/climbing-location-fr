@@ -4,10 +4,8 @@ from climbing_location_fr.app.ui import mapper_color_type, mapper_color_nature, 
 order_date, mapper_color_is_artificial, mapper_color_libre, mapper_color_saison, create_color_mapper
 from climbing_location_fr.app.cache_data import load_data
 
-st.set_page_config(
-    page_title='home-page-installations',
-    layout='wide'   
-)
+st.set_page_config(layout='wide')
+st.title('Comparatif escalade naturelle 🌿 et escalade artificielle 🧱')
 
 data, data_natural, data_artificial = load_data()
 
@@ -21,7 +19,6 @@ mapper_color_equip_nature_grouped = create_color_mapper(
     data, "equip_nature_grouped"
 )
 
-st.title('Comparatif escalade naturelle et escalade artificielle')
 st.divider()
 
 
